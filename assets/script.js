@@ -116,26 +116,26 @@ function endQuiz(){
 // hide question screen, unhide end screen
 }
 
-// function saveHighscore() {
-//     // get value of input box
-//     var initials = initialsEl.value.trim();
-//     // make sure value wasn't empty
-//     initialsEl.value.toUpperCase();
-//       // get saved scores from localstorage, or if not any, set to empty array
-//       var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
-//       // format new score object for current user
-//       var newScore = {
-//         score: time,
-//         initials: initials
-//       };
-//       // save to localstorage
-//       highscores.push(newScore);
-//       window.localStorage.setItem("highscores", JSON.stringify(highscores));
-//       // redirect to next page
-//       window.location.href = "highscores.html";
-//       var highScores = document.createElement('p');
-//       highscores.textContent = "Your score is: "
-//   }
+function saveHighscore() {
+    
+    var initials = initialsEl.value.trim();
+    
+    initialsEl.value.toUpperCase();
+      // get saved scores from localstorage, or if not any, set to empty array
+      var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+      
+      var newScore = {
+        score: time,
+        initials: initials
+      };
+      // save to localstorage
+      highscores.push(newScore);
+      window.localStorage.setItem("highscores", JSON.stringify(highscores));
+      // redirect to next page
+      window.location.href = "highscores.html";
+      var highScores = document.createElement('p');
+      highScores.textContent = "Your score is: " + newScore
+  }
 
 startButton.addEventListener('click', startQuiz);
 submitButton.addEventListener('click', endQuiz);
